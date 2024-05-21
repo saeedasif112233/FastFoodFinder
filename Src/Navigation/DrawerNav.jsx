@@ -19,7 +19,16 @@ import DrawerProfile from "../Component/DrawerProfile";
 const Drawer = createDrawerNavigator();
 export default function DrawerNav() {
   return (
-    <Drawer.Navigator drawerContent={(props) => <DrawerProfile {...props} />}>
+    <Drawer.Navigator
+      screenOptions={{
+        drawerStyle: {
+          width: 300,
+          margin: 0,
+          padding: 0,
+        },
+      }}
+      drawerContent={(props) => <DrawerProfile {...props} />}
+    >
       <Drawer.Screen
         name="Homescreen"
         component={HomeTab}
