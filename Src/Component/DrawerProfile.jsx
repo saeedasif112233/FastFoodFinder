@@ -4,9 +4,11 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
+  routes,
 } from "@react-navigation/drawer";
 import Icon1 from "react-native-vector-icons/Octicons";
 import { Avatar, Badge, Icon, Switch } from "react-native-elements";
+import AuthNav from "../Navigation/AuthNav";
 export default function DrawerProfile(props) {
   return (
     <View style={styles.container}>

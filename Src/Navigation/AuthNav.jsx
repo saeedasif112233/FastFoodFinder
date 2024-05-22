@@ -8,6 +8,7 @@ import Test from "../Screen/AuthScreen/test";
 import HomeTab from "./HomeTab";
 import MapScreen from "../Screen/OtherScreen/MapScreen";
 import DrawerNav from "./DrawerNav";
+import SearchResultTab from "./SearchRes";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,13 @@ export default function AuthNav() {
       <Stack.Screen
         name="MapScreen"
         component={MapScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="SearchResult"
+        component={SearchResultTab}
         options={{
           headerShown: false,
         }}

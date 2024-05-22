@@ -10,6 +10,6 @@ export const color = {
   redgoogle: "red",
 };
 export const header = {
-  height: 80,
+  height: 90,
   font: 20,
 };

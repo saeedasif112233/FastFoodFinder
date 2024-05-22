@@ -4,8 +4,25 @@ export const data = [
   { id: "2", image: require("../../assets/4a.jpg"), name: "Fries" },
   { id: "3", image: require("../../assets/3.jpg"), name: "Leg" },
   { id: "4", image: require("../../assets/3a.jpg"), name: "Fish" },
-  { id: "5", image: require("../../assets/7a.jpg"), name: "fingerfris" },
+  { id: "5", image: require("../../assets/7a.jpg"), name: "Quorma" },
   { id: "6", image: require("../../assets/5a.jpg"), name: "Swarma" },
+  { id: "7", image: require("../../assets/5.jpg"), name: "Pratha" },
+  { id: "8", image: require("../../assets/6.jpg"), name: "Nihari" },
+];
+export const data1 = [
+  { id: "0", image: require("../../assets/1.jpg"), name: "Chinees" },
+  {
+    id: "1",
+    image: require("../../assets/2.jpg"),
+    name: "Finger Fries",
+  },
+  { id: "2", image: require("../../assets/4a.jpg"), name: "Fries" },
+  { id: "3", image: require("../../assets/3.jpg"), name: "Leg" },
+  { id: "4", image: require("../../assets/3a.jpg"), name: "Fish" },
+  { id: "5", image: require("../../assets/7a.jpg"), name: "Half Fried Chips" },
+  { id: "6", image: require("../../assets/4.jpg"), name: "Italic" },
+  { id: "7", image: require("../../assets/5.jpg"), name: "Chicken Pratha" },
+  { id: "8", image: require("../../assets/5a.jpg"), name: "Swarma" },
 ];
 
 export const foodCardData = [

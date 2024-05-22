@@ -11,7 +11,7 @@ export default function HomeTab() {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Search"
       tabBarOptions={{
         activeTintColor: "black", // Set active tab color
         inactiveTintColor: "#B2BEB5", // Set inactive tab color
@@ -31,6 +31,7 @@ export default function HomeTab() {
         name="Search"
         component={SearchScreen}
         options={{
+          headerShown: false,
           tabBarLabel: "Search",
           tabBarIcon: ({ color, size }) => (
             <Icon name="magnify" color={color} size={size} />
