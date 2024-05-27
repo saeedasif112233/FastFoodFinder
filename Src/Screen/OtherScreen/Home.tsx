@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   View,
   Text,
@@ -10,11 +9,11 @@ import {
   Pressable,
   Image,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import Statusbar from "../../Component/statusbar";
 import HomeHeader from "../../Component/HomeHeader";
-import { color, header } from "../../Global/Styles";
-import { ScrollView } from "react-native";
+import { color } from "../../Global/Styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import { data, foodCardData } from "../../Global/Data";
@@ -24,11 +23,30 @@ import HomeTab from "../../Navigation/HomeTab";
 const Screen_width = Dimensions.get("window").width;
 const { height, width } = Dimensions.get("window");
 
-export default function Home({ navigation }) {
-  const [isFocused, setIsFocused] = useState(false);
-  const [Delivery, setDelivery] = useState(true);
-  const [loc, setloc] = useState(false);
-  const [indexCheck, setindexCheck] = useState("0");
+interface HomeProps {
+  navigation: any;
+}
+
+interface DataItem {
+  id: string;
+  name: string;
+  image: any;
+}
+
+interface FoodCardItem {
+  RestName: string;
+  faraway: string;
+  BussinessAddress: string;
+  image: any;
+  AvrgReview: string;
+  NoOfReview: string;
+}
+
+const Home: React.FC<HomeProps> = ({ navigation }) => {
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [Delivery, setDelivery] = useState<boolean>(true);
+  const [loc, setloc] = useState<boolean>(false);
+  const [indexCheck, setindexCheck] = useState<string>("0");
 
   return (
     <View>
@@ -39,9 +57,7 @@ export default function Home({ navigation }) {
         <View style={styles.container}>
           <Statusbar color={color.dgreen} />
           <View>
-            <View>
-              <HomeHeader Title={"Food App"} navigation={navigation} />
-            </View>
+            <HomeHeader Title={"Food App"} navigation={navigation} />
 
             <View
               style={{
@@ -51,7 +67,6 @@ export default function Home({ navigation }) {
                 marginBottom: 1,
               }}
             >
-              {/* <FoodCard /> */}
               <TouchableOpacity
                 style={[
                   styles.btn,
@@ -100,8 +115,8 @@ export default function Home({ navigation }) {
         </View>
         <View style={{ flexDirection: "row" }}>
           <View
-            backgroundColor="lightgrey"
             style={{
+              backgroundColor: "lightgrey",
               flexDirection: "row",
               marginTop: 15,
               borderRadius: 50,
@@ -137,7 +152,6 @@ export default function Home({ navigation }) {
                 alignItems: "center",
                 padding: 5,
                 marginRight: 10,
-                // marginLeft: 5,
               }}
               onPress={() => {
                 setloc(false);
@@ -151,8 +165,7 @@ export default function Home({ navigation }) {
             <Icon1
               name="tune"
               size={30}
-              marginTop={23}
-              marginLeft={-30}
+              style={{ marginTop: 23, marginLeft: -30 }}
               onPress={() => {
                 Alert.alert("Hello Tune");
               }}
@@ -167,12 +180,12 @@ export default function Home({ navigation }) {
         </View>
 
         <FlatList
-          horizontal={true}
+          horizontal
           showsHorizontalScrollIndicator={false}
           data={data}
           keyExtractor={(item) => item.id}
           extraData={indexCheck}
-          renderItem={({ item, index }) => (
+          renderItem={({ item }) => (
             <Pressable
               onPress={() => {
                 setindexCheck(item.id);
@@ -223,13 +236,14 @@ export default function Home({ navigation }) {
           </View>
           <FlatList
             style={{ marginTop: 10, marginBottom: 10 }}
-            horizontal={true}
+            horizontal
             data={foodCardData}
             showsHorizontalScrollIndicator={false}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={{ marginLeft: 3 }}>
                 <FoodCard
+                  onPressFoodCard={() => {}}
                   screenWidth={Screen_width * 0.8}
                   RestName={item.RestName}
                   faraway={item.faraway}
@@ -244,19 +258,20 @@ export default function Home({ navigation }) {
         </View>
         <View style={styles.Titlebar}>
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            Promotion Avaiable
+            Promotion Available
           </Text>
         </View>
         <View>
           <FlatList
             style={{ marginTop: 10, marginBottom: 10 }}
-            horizontal={true}
+            horizontal
             data={foodCardData}
-            showsHorizontalScrollIndicator={true}
+            showsHorizontalScrollIndicator
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={{ marginLeft: 3 }}>
                 <FoodCard
+                  onPressFoodCard={() => {}}
                   screenWidth={Screen_width * 0.8}
                   RestName={item.RestName}
                   faraway={item.faraway}
@@ -279,6 +294,7 @@ export default function Home({ navigation }) {
           {foodCardData.map((item, index) => (
             <View key={index}>
               <FoodCard
+                onPressFoodCard={() => {}}
                 screenWidth={Screen_width * 0.95}
                 RestName={item.RestName}
                 faraway={item.faraway}
@@ -305,14 +321,13 @@ export default function Home({ navigation }) {
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f0efeb",
     paddingBottom: 5,
-    // borderRadius: -10,
   },
   btn: {
     borderRadius: 30,
@@ -364,7 +379,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: color.lYellow,
-    // textAlign: "center",
+    // backgroundColor:'lighblu',
   },
 });
+
+export default Home;
