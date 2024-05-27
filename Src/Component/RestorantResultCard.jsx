@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { Icon } from "react-native-elements";
+import { Icon } from "react-native-elements/dist/icons/Icon";
 import { color } from "../Global/Styles";
 import ProductCard from "./ProductCard";
 
@@ -28,7 +28,7 @@ const RestaurantResultCard = ({
     <View>
       <TouchableOpacity onPress={OnPressRestaurantCard}>
         <View style={styles.view1}>
-          <View style={{ height: 150 }}>
+          <View style={{ height: 150, marginBottom: 10 }}>
             <ImageBackground
               style={{ height: 160 }}
               source={images}
@@ -86,6 +86,7 @@ export default RestaurantResultCard;
 const styles = StyleSheet.create({
   view1: {
     marginHorizontal: 9,
+    marginTop: 10,
     borderTopRightRadius: 5,
     borderTopLeftRadius: 5,
   },
@@ -100,9 +101,23 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 5,
     borderBottomLeftRadius: 12,
   },
-  imageStyle: { borderTopLeftRadius: 5, borderTopRightRadius: 5 },
-  text1: { color: "white", fontSize: 20, fontWeight: "bold", marginTop: -3 },
-  text2: { color: "white", fontSize: 13, marginRight: 0, marginLeft: 0 },
+  imageStyle: {
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
+
+  text1: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: -3,
+  },
+  text2: {
+    color: "white",
+    fontSize: 13,
+    marginRight: 0,
+    marginLeft: 0,
+  },
   view2: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -136,11 +151,18 @@ const styles = StyleSheet.create({
   },
   view5: {
     marginLeft: 5,
+    marginRight: 5,
     fontSize: 12,
     color: "grey",
   },
   text6: {
     fontSize: 12,
+    marginTop: 1,
+    marginLeft: 10,
+    paddingLeft: 8,
+    marginLeft: 8,
     color: "grey",
+    borderLeftColor: "lightgrey",
+    borderLeftWidth: 2,
   },
 });

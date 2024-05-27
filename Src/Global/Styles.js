@@ -8,7 +8,7 @@ export const color = {
   iconSize: 22,
   bluefacebook: "blue",
   redgoogle: "red",
-  cardbackground: "grey",
+  cardbackground: "white",
   CardComment: "grey",
 };
 export const header = {
