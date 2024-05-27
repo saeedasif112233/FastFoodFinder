@@ -32,7 +32,10 @@ export default function Home({ navigation }) {
 
   return (
     <View>
-      <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
+      <ScrollView
+        stickyHeaderIndices={[0]}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.container}>
           <Statusbar color={color.dgreen} />
           <View>

@@ -15,7 +15,7 @@ import { color } from "../../Global/Styles";
 import { data1, data } from "../../Global/Data";
 const Screen_Width = Dimensions.get("window").width;
 
-export default function SearchScreen() {
+export default function SearchScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Search />
@@ -27,10 +27,13 @@ export default function SearchScreen() {
           data={data1}
           keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
-            <Pressable onPress={() => {}}>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                navigation.navigate("SearchResult", { item: item.name });
+              }}
+            >
               <View
                 style={{
-                  // marginTop: 10,
                   justifyContent: "space-evenly",
                   alignContent: "center",
                 }}
@@ -40,7 +43,6 @@ export default function SearchScreen() {
                     height: 150,
                     width: 150,
                     borderRadius: 20,
-                    // marginLeft: 10,
                     margin: 7,
                     marginLeft: 15,
                   }}
@@ -48,7 +50,7 @@ export default function SearchScreen() {
                 />
                 <Text style={{ textAlign: "center" }}>{item.name}</Text>
               </View>
-            </Pressable>
+            </TouchableWithoutFeedback>
           )}
           numColumns={2}
           ListHeaderComponent={
@@ -61,16 +63,17 @@ export default function SearchScreen() {
                 fontWeight: "bold",
               }}
             >
-              Catagories
+              Categories
             </Text>
           }
-          ListFooterComponent={<Footer />}
+          ListFooterComponent={<Footer navigation={navigation} />}
         />
       </View>
     </View>
   );
 }
-const Footer = () => {
+
+const Footer = ({ navigation }) => {
   return (
     <View style={{ marginTop: 50 }}>
       <FlatList
@@ -79,10 +82,13 @@ const Footer = () => {
         data={data}
         keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => (
-          <Pressable onPress={() => {}}>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("SearchResult", { item: item.name });
+            }}
+          >
             <View
               style={{
-                // marginTop: 10,
                 justifyContent: "space-evenly",
                 alignContent: "center",
               }}
@@ -92,7 +98,6 @@ const Footer = () => {
                   height: 150,
                   width: 150,
                   borderRadius: 20,
-                  // marginLeft: 10,
                   margin: 7,
                   marginLeft: 15,
                 }}
@@ -107,13 +112,12 @@ const Footer = () => {
           <Text
             style={{
               marginLeft: 20,
-              marginTop: 10,
-              marginBottom: 10,
+              marginBottom: 30,
               fontSize: 20,
               fontWeight: "bold",
             }}
           >
-            More Catagories
+            More Categories
           </Text>
         }
       />
@@ -125,10 +129,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 5,
-    //   justifyContent: "center",
-    //   alignItems: "center",
-    //   backgroundColor: "#fff",
-    // marginTop: -25,
   },
   imageBackground: {
     width: "100%",

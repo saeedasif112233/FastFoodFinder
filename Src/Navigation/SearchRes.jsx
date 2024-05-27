@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import SearchScreen from "../Screen/OtherScreen/SearchScreen";
 import SearchResult from "../Screen/OtherScreen/SreachResult";
+// import ClientTab from "./clienttabs";
 
 // import Signin from "../Screen/AuthScreen/Signin";
 const Stack = createNativeStackNavigator();
@@ -17,7 +18,6 @@ export default function SearchResultTab() {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name="SearchResult"
         component={SearchResult}
@@ -25,6 +25,13 @@ export default function SearchResultTab() {
           headerShown: false,
         }}
       />
+      {/* <Stack.Screen
+        name="ClientTab"
+        component={ClientTab}
+        options={{
+          headerShown: false,
+        }} */}
+      {/* /> */}
     </Stack.Navigator>
   );
 }

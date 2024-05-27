@@ -33,8 +33,7 @@ export default function Search() {
 
   const handleSearch = (text) => {
     const dataS = filter(data1, (user) => contains(user, text));
-      setData2(dataS);
-      
+    setData2(dataS);
   };
 
   return (
@@ -52,8 +51,8 @@ export default function Search() {
           />
           <Text>What are you looking for?</Text>
         </View>
-          </TouchableWithoutFeedback>
-          
+      </TouchableWithoutFeedback>
+
       <Modal animationType="fade" transparent={false} visible={visible}>
         <TouchableWithoutFeedback
           onPress={() => {
@@ -114,13 +113,24 @@ export default function Search() {
                 <TouchableOpacity
                   onPress={() => {
                     Keyboard.dismiss();
-                    navigation.navigate("Search", { item: item.name });
+                    navigation.navigate("SearchResult", { item: item.name });
                     setVisible(false);
                     settextInputFocused(true);
                   }}
                 >
                   <View style={styles.View2}>
-                    <Text>{item.name}</Text>
+                    <Text
+                      style={{
+                        borderColor: "lightgrey",
+                        borderWidth: 1,
+                        borderRadius: 5,
+                        width: 325,
+                        padding: 10,
+                        marginTop: -10,
+                      }}
+                    >
+                      {item.name}
+                    </Text>
                   </View>
                 </TouchableOpacity>
               )}
